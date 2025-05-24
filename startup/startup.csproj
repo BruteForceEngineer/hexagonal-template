@@ -20,6 +20,7 @@
 	</ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\adapter\Inbound\Inbound.csproj" />
     <ProjectReference Include="..\core\Services\Services.csproj" />
   </ItemGroup>
 
