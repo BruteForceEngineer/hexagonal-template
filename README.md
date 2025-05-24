@@ -1,3 +1,3 @@
 # hexagonal-template
 
-still work in progress
+still a work in progress
