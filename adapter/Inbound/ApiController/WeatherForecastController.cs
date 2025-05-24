@@ -1,7 +1,9 @@
 using Core.Ports.Inbound.Services;
+using Core.Services.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
-namespace startup.Controllers
+namespace Adapter.Inbound.ApiController
 {
     [ApiController]
     [Route("api/v1")]
@@ -15,9 +17,9 @@ namespace startup.Controllers
         };
 
         [HttpGet("SomeMoreStuff")]
-        public IEnumerable<WeatherForecast> DoSomeStuff()
+        public IEnumerable<WeatherForecastService> DoSomeStuff()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecastService
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
                 TemperatureC = Random.Shared.Next(-20, 55),
@@ -29,7 +31,7 @@ namespace startup.Controllers
         [HttpGet]
         public string Index()
         {
-            return testService.GetSectionString() ?? "Not good";
+            return "start";
         }
     }
 }

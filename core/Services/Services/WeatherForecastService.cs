@@ -1,6 +1,6 @@
-namespace startup
+namespace Core.Services.Services
 {
-    public class WeatherForecast
+    public class WeatherForecastService
     {
         public DateOnly Date { get; set; }
 
