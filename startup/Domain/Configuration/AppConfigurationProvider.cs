@@ -11,7 +11,7 @@ namespace startup.Domain.Configuration
         }
 
         public IChangeToken GetReloadToken()
-        {            
+        {
             throw new NotImplementedException();
         }
 

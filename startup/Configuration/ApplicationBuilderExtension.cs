@@ -6,11 +6,11 @@ namespace startup.Configuration
     {
         public static void AddServicesConfiguration(this IHostApplicationBuilder builder)
         {
-            List<DirectoryInfo> configurationDirectories = Directory.GetDirectories(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"var")).Select(d => new DirectoryInfo(d)).ToList();
+            List<DirectoryInfo> configurationDirectories = Directory.GetDirectories(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "var")).Select(d => new DirectoryInfo(d)).ToList();
 
             foreach (DirectoryInfo directoryInfo in configurationDirectories)
             {
-                
+
                 builder.Configuration.AddConfiguration(directoryInfo);
             }
         }
