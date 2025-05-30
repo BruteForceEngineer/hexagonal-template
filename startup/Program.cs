@@ -1,6 +1,8 @@
 
 using Core.Ports.Inbound.Services;
 using Core.Services;
+using Microsoft.Extensions.DependencyInjection;
+using startup.Configuration;
 
 namespace startup
 {
@@ -22,8 +24,18 @@ namespace startup
             builder.Services.AddOpenApi();
 
             builder.Services.AddScoped<ITestService, TestService>();
+            builder.Services.AddLogging(logging =>
+            {
+                logging.AddConsole();
+                logging.AddDebug();
+                logging.SetMinimumLevel(LogLevel.Debug);
+            });
+
+            builder.AddServicesConfiguration();            
 
             var app = builder.Build();
+
+            var logger = app.Services.GetRequiredService<ILogger<Program>>();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
