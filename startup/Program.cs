@@ -31,7 +31,7 @@ namespace startup
                 logging.SetMinimumLevel(LogLevel.Debug);
             });
 
-            builder.AddServicesConfiguration();            
+            builder.AddServicesConfiguration();
 
             var app = builder.Build();
 
